@@ -246,12 +246,12 @@ const TrackComplaint = () => {
                         {complaint.attachments.map((attachment, index) => (
                           <div key={index} className="attachment-item">
                             <a
-                              href={`http://localhost:5000/uploads/complaints/${attachment.filename}`}
+                              href={`http://localhost:5000/uploads/complaints/${attachment}`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="attachment-link"
                             >
-                              📎 {attachment.originalName}
+                              📎 {attachment}
                             </a>
                           </div>
                         ))}
