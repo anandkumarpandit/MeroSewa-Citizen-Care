@@ -5,67 +5,68 @@ A comprehensive web-based complaint management system for local government bodie
 ## 🏗️ Architecture Overview
 
 ```
-MeroSewa/
-├── backend/                 # Express.js Backend Server
-│   ├           
-│   │   
-│   ├── middleware/         
-│   │   ├── auth.js         # JWT authentication middleware
-│   │   └── upload.js       # File upload middleware
-│   ├── models/             
-│   │   ├── Complaint.js    # Complaint schema
-│   │   ├──
-│   │   └── User.js         # Admin user schema
-│   ├── routes/             
-│   │   ├── auth.js         # Admin authentication routes
-│   │   └── complaints.js   # Complaint CRUD operations
-│   ├── services/           
-│   │   ├── 
-│   │   └── qrService.js    # QR code generation service
-│   ├── uploads/            
-│   │   └── complaints/     # Uploaded complaint attachments
-│   ├── config.env          # Environment variables
-│   ├── server.js           # Main server entry point
-│   └── 
-│
-├── frontend/               # React.js Frontend Application
-│   ├── public/             
-│   │   ├── index.html      
-│   │   └── favicon.ico     
-│   ├── src/                
-│   │   ├── components/     
-│   │   │   ├── Chatbot.js          # AI chatbot for complaint submission
-│   │   │   ├── Chatbot.css         
-│   │   │   ├── Footer.js           # Footer component
-│   │   │   ├── Header.js           # Navigation header
-│   │   │   ├── ProtectedRoute.js   # Route protection wrapper
-│   │   │   ├── QRCodeDisplay.js    # QR code display component
-│   │   │   └── QRScanner.js        # QR code scanner component
-│   │   ├── pages/          
-│   │   │   ├── Home.js             # Landing page
-│   │   │   ├── Home.css            
-│   │   │   ├── SubmitComplaint.js  # Complaint submission form
-│   │   │   ├── SubmitComplaint.css 
-│   │   │   ├── TrackComplaint.js   # Complaint tracking page
-│   │   │   ├── TrackComplaint.css  
-│   │   │   ├── AdminLogin.js       # Admin login page
-│   │   │   ├── AdminLogin.css      
-│   │   │   ├── AdminSignup.js      # Admin registration page
-│   │   │   ├── AdminDashboard.js   # Admin dashboard
-│   │   │   ├── AdminDashboard.css  
-│   │   │   ├── GenerateQR.js       # QR code generation page
-│   │   │   └── QRInfo.js           # QR information page
-│   │   ├── services/       
-│   │   │   └── api.js              # API service layer
-│   │   ├── App.js                  # Main app component
-│   │   ├── App.css                 
-│   │   └── index.js                # React entry point
-│   ├── package.json        
-│   └── README.md           
-│
-└── scripts/                # Utility scripts
-    ├── setup-admin.js      # Admin user creation script
-   
+Users/anandkumar/MeroSewa
+├── ARCHITECTURE.md          # Project architecture documentation
+├── README.md                # Project overview and instructions
+├── env.development          # Development environment variables
+├── package.json             # Root dependencies and scripts
+├── backend/                 # Server-side code
+│   ├── config.env           # Environment variables
+│   ├── server.js            # Backend entry point
+│   ├── middleware/          # Custom middleware
+│   │   ├── auth.js
+│   │   └── authMiddleware.js
+│   ├── models/              # Database schemas
+│   │   ├── Complaint.js
+│   │   └── User.js
+│   ├── routes/              # API endpoints
+│   │   ├── auth.js
+│   │   └── complaints.js
+│   ├── services/            # Business logic
+│   │   └── qrService.js
+│   └── uploads/             # Backend upload storage
+│       └── complaints/
+├── frontend/                # Client-side code
+│   ├── package.json         # Frontend dependencies
+│   ├── tailwind.config.js   # Tailwind CSS configuration
+│   ├── public/              # Static assets
+│   │   ├── index.html
+│   │   └── ...
+│   └── src/                 # React source code
+│       ├── App.js           # Main component
+│       ├── App.css
+│       ├── index.js         # Entry point
+│       ├── index.css
+│       ├── components/      # Reusable UI components
+│       │   ├── Chatbot.js
+│       │   ├── Chatbot.css
+│       │   ├── Footer.js
+│       │   ├── Header.js
+│       │   ├── ProtectedRoute.js
+│       │   ├── QRCodeDisplay.js
+│       │   └── QRScanner.js
+│       ├── pages/           # Page views
+│       │   ├── AdminDashboard.js
+│       │   ├── AdminDashboard.css
+│       │   ├── AdminLogin.js
+│       │   ├── AdminLogin.css
+│       │   ├── AdminSignup.js
+│       │   ├── ComplaintForm.js (SubmitComplaint.js)
+│       │   ├── GenerateQR.js
+│       │   ├── Home.js
+│       │   ├── Home.css
+│       │   ├── QRInfo.js
+│       │   ├── SubmitComplaint.js
+│       │   ├── SubmitComplaint.css
+│       │   ├── TrackComplaint.js
+│       │   └── TrackComplaint.css
+│       ├── services/        # API integration
+│       │   ├── api.js
+│       │   └── apiClient.js
+│       └── utils/           # Helper functions
+└── uploads/                 # Shared uploads directory
+    ├── complaints/
+    └── qr-codes/
 ```
 
 ## 🛠️ Technology Stack
@@ -90,54 +91,8 @@ MeroSewa/
 - **QR Scanner** - QR code scanning
 - **Tailwind CSS** - Utility-first CSS framework
 
-## 📊 Database Schema
-
-### Complaint Model
-```javascript
-{
-  complaintNumber: String (unique),
-  personName: String,
-  phone: String,
-  email: String,
-  wardNumber: Number,
-  location: String,
-  address: String,
-  complaintType: String,
-  priority: String (Low/Medium/High/Emergency),
-  title: String,
-  description: String,
-  incidentDate: Date,
-  attachments: [String],
-  status: String,
-  assignedTo: String,
-  assignedPhone: String,
-  assignedEmail: String,
-  resolutionNotes: String,
-  actionDate: Date,
-  lastUpdated: Date,
-  timestamps: true
-}
-```
-
-### User Model (Admin)
-```javascript
-{
-  username: String (unique),
-  email: String,
-  password: String (hashed),
-  role: String (admin),
-  isActive: Boolean,
-  lastLogin: Date,
-  timestamps: true
-}
-```
 
 ## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB (local or Atlas)
-- npm or yarn
 
 ### Installation
 
@@ -153,20 +108,9 @@ MeroSewa/
    npm install
    ```
 
-3. **Configure Environment Variables**
-   
-   Create `backend/config.env`:
-   ```env
-   MONGODB_URI=mongodb://localhost:27017/gaupalika_complaints
-   PORT=5000
-   JWT_SECRET=your_jwt_secret_key
-   ADMIN_REGISTRATION_SECRET=your_admin_secret
-   FRONTEND_URL=http://localhost:3000
-   ```
-
 4. **Frontend Setup**
    ```bash
-   cd ../frontend
+   cd frontend
    npm install
    ```
 
@@ -175,7 +119,7 @@ MeroSewa/
    Terminal 1 (Backend):
    ```bash
    cd backend
-   node server.js
+   npm start
    ```
    
    Terminal 2 (Frontend):
@@ -184,147 +128,5 @@ MeroSewa/
    npm start
    ```
 
-6. **Create Admin User** (Optional)
-   ```bash
-   cd scripts
-   node setup-admin.js
-   ```
 
-## 🔑 Key Features
 
-### Public Features
-- ✅ Submit complaints with attachments (images/documents)
-- ✅ Track complaint status using complaint number
-- ✅ QR code-based quick complaint submission
-- ✅ Location auto-detection
-- ✅ AI Chatbot for guided complaint submission
-- ✅ Mobile-responsive design
-
-### Admin Features
-- ✅ Secure admin authentication (JWT)
-- ✅ View all complaints with pagination
-- ✅ Filter complaints by status, type, priority, ward
-- ✅ Update complaint status and assign officers
-- ✅ Add resolution notes
-- ✅ Generate QR codes for locations
-- ✅ Dashboard with statistics
-
-## 🌐 API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - Admin registration (requires secret)
-- `POST /api/auth/login` - Admin login
-- `GET /api/auth/me` - Verify token
-
-### Complaints
-- `POST /api/complaints/submit` - Submit complaint
-- `POST /api/complaints/qr/submit` - Submit via QR code
-- `GET /api/complaints/track/:complaintNumber` - Track complaint
-- `GET /api/complaints` - Get all complaints (admin, with pagination)
-- `GET /api/complaints/stats/overview` - Get statistics
-- `PATCH /api/complaints/:id/status` - Update complaint status
-
-## 🔐 Security Features
-
-- JWT-based authentication
-- Password hashing with bcrypt
-- Protected admin routes
-- CORS configuration
-- Helmet security headers
-- Input validation
-- File upload restrictions
-
-## 📱 Complaint Workflow
-
-1. **Submission** → User submits complaint via form/chatbot/QR
-2. **Submitted** → Complaint enters the system
-3. **Under Review** → Admin reviews the complaint
-4. **Accepted** → Complaint is validated and accepted
-5. **In Progress** → Officer is assigned and working on it
-6. **Resolved** → Issue is fixed
-7. **Rejected** → Complaint is invalid (optional)
-
-## 🎨 UI Components
-
-- **Header** - Navigation with responsive menu
-- **Footer** - Contact and copyright information
-- **Chatbot** - Interactive AI assistant
-- **QR Scanner** - Camera-based QR code reader
-- **QR Display** - Generate and display QR codes
-- **Protected Routes** - Authentication wrapper
-
-## 📝 Environment Variables
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `MONGODB_URI` | MongoDB connection string | `mongodb://localhost:27017/gaupalika_complaints` |
-| `PORT` | Backend server port | `5000` |
-| `JWT_SECRET` | Secret key for JWT | `supersecretkey123` |
-| `ADMIN_REGISTRATION_SECRET` | Secret for admin registration | `admin_secret_2024` |
-| `FRONTEND_URL` | Frontend URL for CORS | `http://localhost:3000` |
-
-## 🧪 Testing
-
-### Test Database Connection
-```bash
-node scripts/test-connection.js
-```
-
-### Check Database Contents
-```bash
-node backend/check_db.js
-```
-
-### Seed Sample Data
-```bash
-node scripts/setup-database.js
-```
-
-## 📦 Deployment
-
-### Backend Deployment
-1. Set environment variables on hosting platform
-2. Ensure MongoDB is accessible
-3. Run `npm install --production`
-4. Start with `node server.js`
-
-### Frontend Deployment
-1. Update API URLs in `src/services/api.js`
-2. Run `npm run build`
-3. Deploy the `build` folder to hosting service
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 👥 Authors
-
-- Anand Kumar
-
-## 🐛 Known Issues
-
-- File upload size limit: 5 files max
-- QR scanner requires HTTPS in production
-- Location detection requires browser permission
-
-## 🔮 Future Enhancements
-
-- [ ] Email/SMS notifications
-- [ ] Multi-language support
-- [ ] Mobile app (React Native)
-- [ ] Advanced analytics dashboard
-- [ ] Complaint priority auto-detection
-- [ ] Integration with government APIs
-- [ ] Real-time updates with WebSockets
-
-## 📞 Support
-
-For support, email support@merosewa.com or create an issue in the repository.
