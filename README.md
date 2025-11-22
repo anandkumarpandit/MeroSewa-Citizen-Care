@@ -7,26 +7,26 @@ A comprehensive web-based complaint management system for local government bodie
 ```
 MeroSewa/
 ├── backend/                 # Express.js Backend Server
-│   ├── config/             
-│   │   └── database.js     # MongoDB connection (unused)
+│   ├           
+│   │   
 │   ├── middleware/         
 │   │   ├── auth.js         # JWT authentication middleware
 │   │   └── upload.js       # File upload middleware
 │   ├── models/             
 │   │   ├── Complaint.js    # Complaint schema
-│   │   ├── Officer.js      # Officer schema
+│   │   ├──
 │   │   └── User.js         # Admin user schema
 │   ├── routes/             
 │   │   ├── auth.js         # Admin authentication routes
 │   │   └── complaints.js   # Complaint CRUD operations
 │   ├── services/           
-│   │   ├── aiService.js    # AI service placeholder (unused)
+│   │   ├── 
 │   │   └── qrService.js    # QR code generation service
 │   ├── uploads/            
 │   │   └── complaints/     # Uploaded complaint attachments
 │   ├── config.env          # Environment variables
 │   ├── server.js           # Main server entry point
-│   └── check_db.js         # Database testing utility
+│   └── 
 │
 ├── frontend/               # React.js Frontend Application
 │   ├── public/             
@@ -65,8 +65,7 @@ MeroSewa/
 │
 └── scripts/                # Utility scripts
     ├── setup-admin.js      # Admin user creation script
-    ├── setup-database.js   # Database seeding script
-    └── test-connection.js  # MongoDB connection test
+   
 ```
 
 ## 🛠️ Technology Stack
