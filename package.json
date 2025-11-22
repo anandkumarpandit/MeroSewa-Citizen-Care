@@ -1,0 +1,45 @@
+{
+  "name": "gaupalika-complaint-system",
+  "version": "1.0.0",
+  "description": "A comprehensive complaint management system for Gaupalika",
+  "main": "server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon backend/server.js",
+    "client": "cd frontend && npm start",
+    "install-all": "npm install && cd frontend && npm install",
+    "setup-db": "node scripts/setup-database.js",
+    "test-db": "node scripts/test-connection.js",
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "axios": "^1.12.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^6.11.2",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.20.0",
+    "mongoose": "^7.8.7",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.4",
+    "qr-image": "^3.2.0",
+    "qrcode": "^1.5.4",
+    "twilio": "^5.10.3"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "gaupalika",
+    "complaint",
+    "municipality",
+    "citizen-services"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

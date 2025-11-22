@@ -1,0 +1,161 @@
+/* ========================== */
+/*     ADMIN LOGIN SECTION    */
+/* ========================== */
+
+/* Full-screen wrapper */
+.login-wrap {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Login Box */
+.login-html {
+  background: #ffffff;
+  width: 420px;
+  max-width: 95%;
+  padding: 2rem 2.2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  animation: fadeInLogin 0.4s ease;
+}
+
+/* Fade animation */
+@keyframes fadeInLogin {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tab styling (Only Sign In Visible) */
+.sign-in {
+  display: none;
+}
+
+.tab {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-right: 20px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  color: #9aa0b8;
+  transition: 0.3s ease;
+}
+
+/* When selected */
+.sign-in:checked + .tab {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+/* Form Container */
+.login-form {
+  margin-top: 1.7rem;
+}
+
+/* Show only sign-in form */
+.sign-in-htm {
+  display: block;
+}
+
+/* Form Groups */
+.group {
+  margin-bottom: 1.3rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+/* Input Fields */
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  transition: 0.25s ease;
+}
+
+.input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.16);
+  outline: none;
+}
+
+/* Checkbox */
+.check {
+  margin-right: 8px;
+}
+
+/* Submit Button */
+.button {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Divider Line */
+.hr {
+  height: 1px;
+  background: #ddd;
+  margin: 25px 0;
+}
+
+/* Center Footer */
+.foot-lnk {
+  text-align: center;
+}
+
+.foot-lnk a {
+  color: #667eea;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.foot-lnk a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .login-html {
+    width: 92%;
+    padding: 1.5rem 1.2rem;
+  }
+
+  .tab {
+    font-size: 1.2rem;
+    margin-right: 14px;
+  }
+
+  .input {
+    padding: 0.7rem 0.9rem;
+  }
+
+  .button {
+    font-size: 1rem;
+  }
+}
